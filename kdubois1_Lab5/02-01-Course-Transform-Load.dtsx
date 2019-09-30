@@ -1,0 +1,1521 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/30/2019 11:38:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="M21217C0485"
+  DTS:CreatorName="NC\kdubois1"
+  DTS:DTSID="{E640C068-E890-4A36-BB94-0FC81300E1FF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="02-01-Course-Transform-Load"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{1ABA7B37-3123-442F-B76A-9E8EC2E097D2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{56C80C8C-114B-407F-83B4-285A140A4D0A}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SSIS_Errors\errors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentID"
+              DTS:DTSID="{D89C885D-1709-4621-B3BB-15D73BDFFD5C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentFirstName"
+              DTS:DTSID="{43622F46-AFC0-4D97-88C8-E623D1E8CE2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentLastName"
+              DTS:DTSID="{706EBACE-DA38-4BD6-AA24-23483D8213B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentDOB"
+              DTS:DTSID="{A6797F7E-513E-4DE3-B91E-AFBDA686CF67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentGender"
+              DTS:DTSID="{9241FE40-FA69-430D-B7C5-5C765EFCB7CD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentImagefile"
+              DTS:DTSID="{6268C436-CECB-4B6C-96DB-B24666EF8F33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="301"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentImage"
+              DTS:DTSID="{20362D93-FD65-4C12-B67F-3495C5A44691}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentAddress"
+              DTS:DTSID="{9CC46DE4-A08E-4B1A-B066-B0E220408C08}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentCity"
+              DTS:DTSID="{817EE0FD-BE74-4FF6-8D82-5C131E13B213}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StateAbbreviation"
+              DTS:DTSID="{A3025410-4EDF-4BEB-880F-9BC14A6D396E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentPostalCode"
+              DTS:DTSID="{E9F0E79D-F9B9-42BF-9E22-44D103093C8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentPhoneNumber"
+              DTS:DTSID="{5D609EB3-33A5-4AA1-B0B8-89C2C22AE95B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{69AD8174-927C-4105-A586-8F2B5A28E032}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{624587E5-3408-498C-BA14-9CA269773E46}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{4022D74A-9E84-4EC7-ABA7-8CBB9B1B2FCE}"
+      DTS:ObjectName="ParentAuditKeyParam">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F7E207A6-709D-446A-B502-DA5EBA291709}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43C0A1A2-5D7A-48C1-BF3A-FBDA1AA11F47}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestTable">
+      <DTS:VariableValue
+        DTS:DataType="8">[Dimension].[Course]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91B2D8B1-93F8-47FF-B397-FB83DE41490B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{936C0BFA-D267-451D-8E24-2A1A7AA45D85}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExtractRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D6FEF9B-C05D-4DE1-BA6F-7B5C06A38CB5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ParentAuditKeyParam]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ParentAuditKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{69349C1B-CADF-4061-A5D0-83F37D378DBD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F889C87-D061-4757-A9A9-32985CE69E36}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">[Staging].[DimCourse]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7369DB5-98C7-4F42-9CD9-5069DEB586C6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableFinalCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Extract Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{e7f6cf27-d4f3-4125-8144-c01e118b7822}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Extract Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Extract Data\FF Errors"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="FF Errors">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract Data\FF Errors.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentID]"
+                      dataType="i8"
+                      name="StudentID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="StudentFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="StudentLastName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentDOB]"
+                      dataType="dbTimeStamp"
+                      name="StudentDOB" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentGender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="StudentGender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StudentAddress" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentCity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StudentCity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentPostalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="StudentPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentPhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="StudentPhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StateAbbreviation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="StateAbbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentImagefile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="StudentImagefile" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input].ExternalColumns[StudentImage]"
+                      dataType="image"
+                      name="StudentImage" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT Extract Data\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [Dimension].[Course]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [Dimension].[Course]) [refTable]
+where [refTable].[IWCourseKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CourseKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IWCourseKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CourseName" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CourseTitle" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CourseCredits" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DepartmentName" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AuditKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract Data\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{8E97B0E5-EB70-47C1-AF65-C5D5A531B226}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[__sqlexpress.kdubois1_IronwoodDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract Data\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Extract Data\Lookup.Inputs[Lookup Input].Columns[CourseID]"
+                      cachedDataType="i8"
+                      cachedName="CourseID"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IWCourseKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract Data\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT Extract Data\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract Data\Lookup.Outputs[Lookup Match Output].Columns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="30"
+                      lineageId="Package\DFT Extract Data\Lookup.Outputs[Lookup Match Output].Columns[DepartmentName]"
+                      name="DepartmentName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DepartmentName</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Extract Data\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT Extract Data\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Extract Data\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT Extract Data\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Extract Data\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">User::DestTable</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">1000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract Data\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{8E97B0E5-EB70-47C1-AF65-C5D5A531B226}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[__sqlexpress.kdubois1_IronwoodDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CourseName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CourseName"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseName]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseName]" />
+                    <inputColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CourseTitle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CourseTitle"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseTitle]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseTitle]" />
+                    <inputColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CourseCredits]"
+                      cachedDataType="ui1"
+                      cachedName="CourseCredits"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseCredits]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseCredits]" />
+                    <inputColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CourseID]"
+                      cachedDataType="i8"
+                      cachedName="CourseID"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IWCourseKey]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseKey]"
+                      dataType="i8"
+                      name="CourseKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IWCourseKey]"
+                      dataType="i8"
+                      name="IWCourseKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CourseName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CourseTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CourseCredits]"
+                      dataType="ui1"
+                      name="CourseCredits" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DepartmentName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuditKey]"
+                      dataType="i4"
+                      name="AuditKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Extract Data\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">User::SourceTable</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract Data\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{8E97B0E5-EB70-47C1-AF65-C5D5A531B226}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[__sqlexpress.kdubois1_IronwoodDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseID]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseID]"
+                      name="CourseID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseName]"
+                      length="10"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseName]"
+                      name="CourseName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseTitle]"
+                      length="200"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseTitle]"
+                      name="CourseTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseCredits]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseCredits]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[CourseCredits]"
+                      name="CourseCredits"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseID]"
+                      dataType="i8"
+                      name="CourseID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CourseName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CourseTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CourseCredits]"
+                      dataType="ui1"
+                      name="CourseCredits" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      dataType="i8"
+                      name="DepartmentID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseID]"
+                      dataType="i8"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseID]"
+                      name="CourseID" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseName]"
+                      name="CourseName" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseTitle]"
+                      name="CourseTitle" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseCredits]"
+                      dataType="ui1"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CourseCredits]"
+                      name="CourseCredits" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      dataType="i8"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Extract Data\RC Extract"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="RC Extract">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::ExtractRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract Data\RC Extract.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract Data\RC Extract.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Extract Data\RC Extract.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Extract Data\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::ErrorCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract Data\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract Data\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Extract Data\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Extract Data.Paths[Lookup No Match Output]"
+              endId="Package\DFT Extract Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT Extract Data\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT Extract Data.Paths[OLE DB Destination Error Output]"
+              endId="Package\DFT Extract Data\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Destination Error Output"
+              startId="Package\DFT Extract Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
+            <path
+              refId="Package\DFT Extract Data.Paths[OLE DB Source Output]"
+              endId="Package\DFT Extract Data\RC Extract.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Extract Data\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Extract Data.Paths[Row Count Output 1]"
+              endId="Package\DFT Extract Data\FF Errors.Inputs[Flat File Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Extract Data\Row Count.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Extract Data.Paths[Row Count Output 11]"
+              endId="Package\DFT Extract Data\Lookup.Inputs[Lookup Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Extract Data\RC Extract.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Audit End"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{49e7d57f-a670-477b-a165-6e7ee986b643}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Audit End"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{461776DE-0C94-4809-9906-78B85B875656}"
+          SQLTask:SqlStatementSource="UPDATE [Dimension].[Lineage]&#xA;SET ExecStopDT = SYSDATETIME()&#xA; , ExtractRowCnt = ?&#xA; ,TableFinalRowCnt = ?&#xA; ,ErrorRowCnt = ?&#xA; ,SuccessfulProcessingInd='Y'&#xA;WHERE AuditKey = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ExtractRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::TableFinalCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::ErrorCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::AuditKey"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Audit Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{745a937c-e3df-4d4a-9a3b-95156de17417}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Audit Start"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8E97B0E5-EB70-47C1-AF65-C5D5A531B226}"
+          SQLTask:SqlStatementSource="INSERT INTO [Dimension].[Lineage]&#xA;           (ParentAuditKey&#xA;           ,[TableName]&#xA;           ,[PkgName]&#xA;           ,[PkgGUID]&#xA;           ,[PkgVersionGUID]&#xA;           ,[PkgVersionMajor]&#xA;           ,[PkgVersionMinor]&#xA;           ,[ExecStartDT]&#xA;           ,[ExecStopDT]&#xA;           ,[ExecutionInstanceGUID]&#xA;           ,[ExtractRowCnt]&#xA;           ,[InsertRowCnt]&#xA;           ,[UpdateRowCnt]&#xA;           ,[ErrorRowCnt]&#xA;           ,[TableInitialRowCnt]&#xA;           ,[TableFinalRowCnt]&#xA;           ,[TableMaxDateTime]&#xA;           ,[SuccessfulProcessingInd])&#xA;     VALUES&#xA;           (?&#xA;           ,?&#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,?&#xA;           ,NULL&#xA;           , ?&#xA;           ,NULL&#xA;           ,0&#xA;           ,0&#xA;           ,NULL&#xA;           ,? &#xA;           ,NULL&#xA;           ,NULL&#xA;           ,'N')&#xA;SELECT AuditKey from [Dimension].[Lineage] where TableName =? and ExecStartDT = ?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::AuditKey" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ParentAuditKey"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::DestTable"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="System::PackageID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="72"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::VersionGUID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="72"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="System::VersionMajor"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="System::VersionMinor"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="System::ExecutionInstanceGUID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="72"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="9"
+            SQLTask:DtsVariableName="User::RowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="10"
+            SQLTask:DtsVariableName="User::DestTable"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="11"
+            SQLTask:DtsVariableName="System::StartTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Count Staging Rows"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b06e3114-85d2-4fe1-9b5f-24ca100a619d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Count Staging Rows"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*) FROM " +  @[User::DestTable]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{461776DE-0C94-4809-9906-78B85B875656}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) FROM [Dimension].[Course]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::TableFinalCount" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{523c2657-ce5d-4888-a49e-a8e92726ab29}"
+      DTS:From="Package\SQL Audit Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT Extract Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{f1c4b8f1-46c8-49ea-887f-33bef492da95}"
+      DTS:From="Package\DFT Extract Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL Count Staging Rows" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{37541e86-4e54-43db-9a91-e5aeba18a8c3}"
+      DTS:From="Package\SQL Count Staging Rows"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL Audit End" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT Extract Data"
+          TopLeft="298,77.586667338901" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SQL Audit End"
+          TopLeft="64.6666664812301,259.093333917406" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SQL Audit Start"
+          TopLeft="70.333322869408,77" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\SQL Count Staging Rows"
+          TopLeft="279.333324617811,170.666667355432" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="220.333322869408,98.2933336694505">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.666677130592,0"
+              Start="0,0"
+              End="70.166677130592,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70.166677130592,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="377.416662308906,119.586667338901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.080000016531"
+              Start="0,0"
+              End="0,43.580000016531">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.580000016531" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="377.73332461781,212.266667355432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-237.86665813658,46.8266665619743"
+              Start="0,0"
+              End="-237.86665813658,39.3266665619743">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.4133332809872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.4133332809872"
+                    Point2="0,23.4133332809872"
+                    Point3="-4,23.4133332809872" />
+                  <mssgle:LineSegment
+                    End="-233.86665813658,23.4133332809872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-233.86665813658,23.4133332809872"
+                    Point2="-237.86665813658,23.4133332809872"
+                    Point3="-237.86665813658,27.4133332809872" />
+                  <mssgle:LineSegment
+                    End="-237.86665813658,39.3266665619743" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Extract Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT Extract Data\Row Count"
+          TopLeft="127.66666147444,291.653334776984" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\DFT Extract Data\RC Extract"
+          TopLeft="247.666654321883,77.9600006116231" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\DFT Extract Data\OLE DB Source"
+          TopLeft="79.333328035143,75.5733339339363" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\DFT Extract Data\FF Errors"
+          TopLeft="335.999987443289,290.106668066237" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT Extract Data\OLE DB Destination"
+          TopLeft="621.333314763176,81.9600006116231" />
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[OLE DB Destination Error Output]"
+          TopLeft="706.833314763176,123.960000611623">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-514.166653288736,167.693334165361"
+              Start="0,0"
+              End="-514.166653288736,160.193334165361">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.8466670826805" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.8466670826805"
+                    Point2="0,83.8466670826805"
+                    Point3="-4,83.8466670826805" />
+                  <mssgle:LineSegment
+                    End="-510.166653288736,83.8466670826805" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-510.166653288736,83.8466670826805"
+                    Point2="-514.166653288736,83.8466670826805"
+                    Point3="-514.166653288736,87.8466670826805" />
+                  <mssgle:LineSegment
+                    End="-514.166653288736,160.193334165361" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-330.292232894368,88.8466670826805,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[Row Count Output 1]"
+          TopLeft="257.66666147444,311.880001421611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.333325968849,0"
+              Start="0,0"
+              End="70.833325968849,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70.833325968849,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115,42"
+          Id="Package\DFT Extract Data\Lookup"
+          TopLeft="415,45" />
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[OLE DB Source Output]"
+          TopLeft="155.333328035143,75.5733339339363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.83332628674,2.38666667768682"
+              Start="0,0"
+              End="156.83332628674,-5.11333332231318">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="4,-22.5" />
+                  <mssgle:LineSegment
+                    End="152.83332628674,-22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.83332628674,-22.5"
+                    Point2="156.83332628674,-22.5"
+                    Point3="156.83332628674,-18.5" />
+                  <mssgle:LineSegment
+                    End="156.83332628674,-5.11333332231318" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[Row Count Output 11]"
+          TopLeft="376.666654321883,98.9600006116231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.333345678117,-32.9600006116231"
+              Start="0,0"
+              End="30.833345678117,-32.9600006116231">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.1666728390585,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.1666728390585,0"
+                    Point2="19.1666728390585,0"
+                    Point3="19.1666728390585,-4" />
+                  <mssgle:LineSegment
+                    End="19.1666728390585,-28.9600006116231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.1666728390585,-28.9600006116231"
+                    Point2="19.1666728390585,-32.9600006116231"
+                    Point3="23.1666728390585,-32.9600006116231" />
+                  <mssgle:LineSegment
+                    End="30.833345678117,-32.9600006116231" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[Lookup No Match Output]"
+          TopLeft="530,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.3333147631761,36.9600006116231"
+              Start="0,0"
+              End="83.8333147631761,36.9600006116231">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.666657381588,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.666657381588,0"
+                    Point2="45.666657381588,0"
+                    Point3="45.666657381588,4" />
+                  <mssgle:LineSegment
+                    End="45.666657381588,32.9600006116231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.666657381588,32.9600006116231"
+                    Point2="45.666657381588,36.9600006116231"
+                    Point3="49.666657381588,36.9600006116231" />
+                  <mssgle:LineSegment
+                    End="83.8333147631761,36.9600006116231" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.139729337162,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Extract Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Extract Data\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Extract Data\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Dimension].[Course]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

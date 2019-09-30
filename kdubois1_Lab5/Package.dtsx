@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{3652DE9A-6B86-499D-891D-16E2F61B5EB6}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{5B1EA040-D11B-4D39-86F8-B297D76932E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -813,27 +813,31 @@ where [refTable].[IWStudentKey] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="115,42"
-          Id="Package\Data Flow Task\Lookup"
-          TopLeft="215,207" />
-        <NodeLayout
           Size="157,42"
           Id="Package\Data Flow Task\OLE DB Source"
           TopLeft="193,73" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Data Flow Task\Flat File Destination 1"
+          TopLeft="247,315" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Data Flow Task\Lookup"
+          TopLeft="456,74" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="272,115">
+          TopLeft="350,94.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,92"
+              EndConnector="106,0"
               Start="0,0"
-              End="0,84.5">
+              End="98.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,84.5" />
+                    End="98.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -842,49 +846,58 @@ where [refTable].[IWStudentKey] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Data Flow Task\Flat File Destination 1"
-          TopLeft="247,315" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="272.5,249">
+          TopLeft="513.5,116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="67,66"
+              EndConnector="-174,199"
               Start="0,0"
-              End="67,58.5">
+              End="-174,191.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29" />
+                    End="0,95.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="4,33" />
+                    Point1="0,95.5"
+                    Point2="0,99.5"
+                    Point3="-4,99.5" />
                   <mssgle:LineSegment
-                    End="63,33" />
+                    End="-170,99.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="63,33"
-                    Point2="67,33"
-                    Point3="67,37" />
+                    Point1="-170,99.5"
+                    Point2="-174,99.5"
+                    Point3="-174,103.5" />
                   <mssgle:LineSegment
-                    End="67,58.5" />
+                    End="-174,191.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-22.30638671875,38,111.6127734375,11.609375"
+              BoundingBox="-142.80638671875,104.5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Lookup">
     <Properties>
@@ -905,19 +918,6 @@ where [refTable].[IWStudentKey] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
