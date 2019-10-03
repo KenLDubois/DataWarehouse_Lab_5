@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="02-01-Course-Transform-Load"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{1ABA7B37-3123-442F-B76A-9E8EC2E097D2}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{53060345-0A4C-4F47-9A9D-0EFCFE4DCC9D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -180,33 +180,6 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{43C0A1A2-5D7A-48C1-BF3A-FBDA1AA11F47}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="DestTable">
-      <DTS:VariableValue
-        DTS:DataType="8">[Dimension].[Course]</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{91B2D8B1-93F8-47FF-B397-FB83DE41490B}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="ErrorCount">
-      <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{936C0BFA-D267-451D-8E24-2A1A7AA45D85}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="ExtractRowCount">
-      <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
       DTS:DTSID="{2D6FEF9B-C05D-4DE1-BA6F-7B5C06A38CB5}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::ParentAuditKeyParam]"
@@ -227,21 +200,57 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9F889C87-D061-4757-A9A9-32985CE69E36}"
-      DTS:IncludeInDebugDump="2345"
+      DTS:DTSID="{91B2D8B1-93F8-47FF-B397-FB83DE41490B}"
+      DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="SourceTable">
+      DTS:ObjectName="RowCountError">
       <DTS:VariableValue
-        DTS:DataType="8">[Staging].[DimCourse]</DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A7369DB5-98C7-4F42-9CD9-5069DEB586C6}"
+      DTS:DTSID="{936C0BFA-D267-451D-8E24-2A1A7AA45D85}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="TableFinalCount">
+      DTS:ObjectName="RowCountExtract">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F5C91B98-149F-43AA-9E0D-05001F157BF0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{68704791-50F0-41FB-942B-A56AE6D3A690}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCountUpdate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43C0A1A2-5D7A-48C1-BF3A-FBDA1AA11F47}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableNameDest">
+      <DTS:VariableValue
+        DTS:DataType="8">[Dimension].[Course]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F889C87-D061-4757-A9A9-32985CE69E36}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableNameSource">
+      <DTS:VariableValue
+        DTS:DataType="8">[Staging].[DimCourse]</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -1045,20 +1054,14 @@ where [refTable].[IWCourseKey] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8E97B0E5-EB70-47C1-AF65-C5D5A531B226}"
-          SQLTask:SqlStatementSource="INSERT INTO [Dimension].[Lineage]&#xA;           (ParentAuditKey&#xA;           ,[TableName]&#xA;           ,[PkgName]&#xA;           ,[PkgGUID]&#xA;           ,[PkgVersionGUID]&#xA;           ,[PkgVersionMajor]&#xA;           ,[PkgVersionMinor]&#xA;           ,[ExecStartDT]&#xA;           ,[ExecStopDT]&#xA;           ,[ExecutionInstanceGUID]&#xA;           ,[ExtractRowCnt]&#xA;           ,[InsertRowCnt]&#xA;           ,[UpdateRowCnt]&#xA;           ,[ErrorRowCnt]&#xA;           ,[TableInitialRowCnt]&#xA;           ,[TableFinalRowCnt]&#xA;           ,[TableMaxDateTime]&#xA;           ,[SuccessfulProcessingInd])&#xA;     VALUES&#xA;           (?&#xA;           ,?&#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,?&#xA;           ,NULL&#xA;           , ?&#xA;           ,NULL&#xA;           ,0&#xA;           ,0&#xA;           ,NULL&#xA;           ,? &#xA;           ,NULL&#xA;           ,NULL&#xA;           ,'N')&#xA;SELECT AuditKey from [Dimension].[Lineage] where TableName =? and ExecStartDT = ?"
+          SQLTask:SqlStatementSource="INSERT INTO [Dimension].[Lineage]&#xA;           (ParentAuditKey&#xA;           ,[TableName]&#xA;           ,[PkgName]&#xA;           ,[PkgGUID]&#xA;           ,[PkgVersionGUID]&#xA;           ,[PkgVersionMajor]&#xA;           ,[PkgVersionMinor]&#xA;           ,[ExecStartDT]&#xA;           ,[ExecStopDT]&#xA;           ,[ExecutionInstanceGUID]&#xA;           ,[ExtractRowCnt]&#xA;           ,[InsertRowCnt]&#xA;           ,[UpdateRowCnt]&#xA;           ,[ErrorRowCnt]&#xA;           ,[TableInitialRowCnt]&#xA;           ,[TableFinalRowCnt]&#xA;           ,[TableMaxDateTime]&#xA;           ,[SuccessfulProcessingInd])&#xA;     VALUES&#xA;           (?&#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,? &#xA;           ,?&#xA;           ,NULL&#xA;           , ?&#xA;           ,NULL&#xA;           ,0&#xA;           ,0&#xA;           ,NULL&#xA;           ,? &#xA;           ,NULL&#xA;           ,NULL&#xA;           ,'N')&#xA;SELECT AuditKey from [Dimension].[Lineage] where TableName = ? and ExecStartDT = ?"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
             SQLTask:DtsVariableName="User::AuditKey" />
           <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="User::ParentAuditKey"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="3"
-            SQLTask:ParameterSize="-1" />
-          <SQLTask:ParameterBinding
             SQLTask:ParameterName="1"
-            SQLTask:DtsVariableName="User::DestTable"
+            SQLTask:DtsVariableName="User::TableNameDest"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="129"
             SQLTask:ParameterSize="-1" />
@@ -1112,7 +1115,7 @@ where [refTable].[IWCourseKey] = ?</property>
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="10"
-            SQLTask:DtsVariableName="User::DestTable"
+            SQLTask:DtsVariableName="User::TableNameDest"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="129"
             SQLTask:ParameterSize="-1" />
@@ -1121,6 +1124,42 @@ where [refTable].[IWCourseKey] = ?</property>
             SQLTask:DtsVariableName="System::StartTime"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ParentAuditKey"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Count Current Rows"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A2621C3E-FCFD-4379-92B0-BAC37B2D2E81}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Count Current Rows"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT COUNT(*)
+FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8E97B0E5-EB70-47C1-AF65-C5D5A531B226}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*)&#xA;FROM [Dimension].[Course]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::RowCount" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::TableNameDest"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
             SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
@@ -1150,6 +1189,14 @@ where [refTable].[IWCourseKey] = ?</property>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7229BFE9-8873-4ABE-A5A9-85B70FCC3571}"
+      DTS:From="Package\SQL Count Current Rows"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL Audit Start" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -1186,37 +1233,37 @@ where [refTable].[IWCourseKey] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="158,42"
           Id="Package\DFT Extract Data"
-          TopLeft="298,77.586667338901" />
+          TopLeft="320,176.586667338901" />
         <NodeLayout
           Size="150,42"
           Id="Package\SQL Audit End"
-          TopLeft="64.6666664812301,259.093333917406" />
+          TopLeft="86.6666664812301,358.093333917406" />
         <NodeLayout
-          Size="150,42"
+          Size="155,42"
           Id="Package\SQL Audit Start"
-          TopLeft="70.333322869408,77" />
+          TopLeft="92.333322869408,176" />
         <NodeLayout
           Size="197,42"
           Id="Package\SQL Count Staging Rows"
-          TopLeft="279.333324617811,170.666667355432" />
+          TopLeft="301.333324617811,269.666667355432" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="220.333322869408,98.2933336694505">
+          TopLeft="247.333322869408,197.293333669451">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77.666677130592,0"
+              EndConnector="72.666677130592,0"
               Start="0,0"
-              End="70.166677130592,0">
+              End="65.166677130592,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="70.166677130592,0" />
+                    End="65.166677130592,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1227,7 +1274,7 @@ where [refTable].[IWCourseKey] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="377.416662308906,119.586667338901">
+          TopLeft="399.416662308906,218.586667338901">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1249,7 +1296,7 @@ where [refTable].[IWCourseKey] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="377.73332461781,212.266667355432">
+          TopLeft="399.73332461781,311.266667355432">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1281,6 +1328,32 @@ where [refTable].[IWCourseKey] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SQL Count Current Rows"
+          TopLeft="68,54" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="169.666661434704,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80"
+              Start="0,0"
+              End="0,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1290,25 +1363,89 @@ where [refTable].[IWCourseKey] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130,42"
-          Id="Package\DFT Extract Data\Row Count"
-          TopLeft="127.66666147444,291.653334776984" />
-        <NodeLayout
-          Size="129,42"
-          Id="Package\DFT Extract Data\RC Extract"
-          TopLeft="247.666654321883,77.9600006116231" />
+          Size="171,42"
+          Id="Package\DFT Extract Data\OLE DB Destination"
+          TopLeft="621.333314763176,81.9600006116231" />
         <NodeLayout
           Size="152,42"
           Id="Package\DFT Extract Data\OLE DB Source"
           TopLeft="79.333328035143,75.5733339339363" />
         <NodeLayout
+          Size="115,42"
+          Id="Package\DFT Extract Data\Lookup"
+          TopLeft="415,45" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\DFT Extract Data\RC Extract"
+          TopLeft="247.666654321883,77.9600006116231" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT Extract Data\Row Count"
+          TopLeft="127.66666147444,291.653334776984" />
+        <NodeLayout
           Size="122,42"
           Id="Package\DFT Extract Data\FF Errors"
           TopLeft="335.999987443289,290.106668066237" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\DFT Extract Data\OLE DB Destination"
-          TopLeft="621.333314763176,81.9600006116231" />
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[Row Count Output 1]"
+          TopLeft="257.66666147444,311.880001421611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.333325968849,0"
+              Start="0,0"
+              End="70.833325968849,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70.833325968849,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[OLE DB Source Output]"
+          TopLeft="155.333328035143,75.5733339339363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.83332628674,2.38666667768682"
+              Start="0,0"
+              End="156.83332628674,-5.11333332231318">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="4,-22.5" />
+                  <mssgle:LineSegment
+                    End="152.83332628674,-22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.83332628674,-22.5"
+                    Point2="156.83332628674,-22.5"
+                    Point3="156.83332628674,-18.5" />
+                  <mssgle:LineSegment
+                    End="156.83332628674,-5.11333332231318" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT Extract Data.Paths[OLE DB Destination Error Output]"
           TopLeft="706.833314763176,123.960000611623">
@@ -1343,100 +1480,6 @@ where [refTable].[IWCourseKey] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-330.292232894368,88.8466670826805,146.4178125,11.43359375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Extract Data.Paths[Row Count Output 1]"
-          TopLeft="257.66666147444,311.880001421611">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78.333325968849,0"
-              Start="0,0"
-              End="70.833325968849,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="70.833325968849,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="115,42"
-          Id="Package\DFT Extract Data\Lookup"
-          TopLeft="415,45" />
-        <EdgeLayout
-          Id="Package\DFT Extract Data.Paths[OLE DB Source Output]"
-          TopLeft="155.333328035143,75.5733339339363">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.83332628674,2.38666667768682"
-              Start="0,0"
-              End="156.83332628674,-5.11333332231318">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-18.5"
-                    Point2="0,-22.5"
-                    Point3="4,-22.5" />
-                  <mssgle:LineSegment
-                    End="152.83332628674,-22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.83332628674,-22.5"
-                    Point2="156.83332628674,-22.5"
-                    Point3="156.83332628674,-18.5" />
-                  <mssgle:LineSegment
-                    End="156.83332628674,-5.11333332231318" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Extract Data.Paths[Row Count Output 11]"
-          TopLeft="376.666654321883,98.9600006116231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.333345678117,-32.9600006116231"
-              Start="0,0"
-              End="30.833345678117,-32.9600006116231">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="15.1666728390585,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.1666728390585,0"
-                    Point2="19.1666728390585,0"
-                    Point3="19.1666728390585,-4" />
-                  <mssgle:LineSegment
-                    End="19.1666728390585,-28.9600006116231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.1666728390585,-28.9600006116231"
-                    Point2="19.1666728390585,-32.9600006116231"
-                    Point3="23.1666728390585,-32.9600006116231" />
-                  <mssgle:LineSegment
-                    End="30.833345678117,-32.9600006116231" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1475,47 +1518,44 @@ where [refTable].[IWCourseKey] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Extract Data.Paths[Row Count Output 11]"
+          TopLeft="376.666654321883,98.9600006116231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.333345678117,-32.9600006116231"
+              Start="0,0"
+              End="30.833345678117,-32.9600006116231">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.1666728390585,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.1666728390585,0"
+                    Point2="19.1666728390585,0"
+                    Point3="19.1666728390585,-4" />
+                  <mssgle:LineSegment
+                    End="19.1666728390585,-28.9600006116231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.1666728390585,-28.9600006116231"
+                    Point2="19.1666728390585,-32.9600006116231"
+                    Point3="23.1666728390585,-32.9600006116231" />
+                  <mssgle:LineSegment
+                    End="30.833345678117,-32.9600006116231" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Extract Data\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Extract Data\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Extract Data\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[Dimension].[Course]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
