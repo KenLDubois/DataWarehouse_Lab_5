@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="02-01-Course-Transform-Load"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{1877B587-40E7-41E7-96E1-0B89D7027A86}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{5BD5D301-DFC4-43E1-BDC9-9D345F1517F1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,7 @@
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
@@ -37,7 +38,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="CourseID"
-              DTS:DTSID="{56132DE6-5668-4963-B9F0-E632DFA70E3D}"
+              DTS:DTSID="{686E201F-FE58-4C79-B028-90D07017F27A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -46,7 +47,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CourseName"
-              DTS:DTSID="{8915946B-FBD3-419A-85AA-D1C466B35986}"
+              DTS:DTSID="{AB62089C-300C-4C0B-A1E2-5FC251444A50}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -55,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CourseTitle"
-              DTS:DTSID="{1F9943E6-6F20-42F7-BC94-B925C9FD4C91}"
+              DTS:DTSID="{747AD95B-9458-4BA2-B080-04C24954C8C5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -63,7 +64,7 @@
               DTS:DataType="17"
               DTS:TextQualified="True"
               DTS:ObjectName="CourseCredits"
-              DTS:DTSID="{2D0EA95B-9DF6-4AE1-B42B-C7B08E86139D}"
+              DTS:DTSID="{0F59C316-569D-4BB5-9F8C-08B1FD3DDECD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -71,7 +72,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="DepartmentID"
-              DTS:DTSID="{AD6A76A9-F10A-4332-9282-5652C6CF33BB}"
+              DTS:DTSID="{D00310BF-7428-40A7-A6F1-B7C3B40ABE8D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -79,7 +80,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="AuditKey"
-              DTS:DTSID="{CD7C3997-4226-4049-87B0-482AE84875EB}"
+              DTS:DTSID="{5392B865-DCDA-4170-A39B-84326A44AC1B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -88,7 +89,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DepartmentName"
-              DTS:DTSID="{D2C9853C-36A4-4084-A60E-B44F48F764A3}"
+              DTS:DTSID="{2824EA7E-1A66-4952-AB96-1FE012B4B30F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -96,7 +97,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorCode"
-              DTS:DTSID="{38D6E3D7-2966-4022-BEED-0585D41B692F}"
+              DTS:DTSID="{7F807AE3-3A5B-4537-B446-47C955C18433}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +105,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorColumn"
-              DTS:DTSID="{339CA09B-954D-44B0-887C-FD20E94E7E59}"
+              DTS:DTSID="{55E1D0A4-8516-47A6-B7A6-4FB9C932BDB1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1489,15 +1490,23 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182,42"
+          Size="182.4,41.6"
           Id="Package\DFT Transform-Load"
           TopLeft="76,188.586667338901" />
         <NodeLayout
-          Size="155,42"
+          Size="169.6,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="76,274" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\SQL Audit End"
+          TopLeft="90,348" />
+        <NodeLayout
+          Size="155.2,41.6"
           Id="Package\SQL Audit Start"
           TopLeft="89.333322869408,124" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\SQL Count Current Rows"
           TopLeft="68,54" />
         <EdgeLayout
@@ -1544,10 +1553,6 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="76,274" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="164,230.586667338901">
@@ -1570,10 +1575,6 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\SQL Audit End"
-          TopLeft="90,348" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="163.5,316">
@@ -1605,213 +1606,41 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\DFT Transform-Load\OLE DB Destination"
           TopLeft="69.333314763176,295.960000611623" />
         <NodeLayout
-          Size="157,42"
+          Size="129.6,41.6"
+          Id="Package\DFT Transform-Load\Row Count"
+          TopLeft="365.66666147444,298.653334776984" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\DFT Transform-Load\FF Errors"
+          TopLeft="603.999987443289,299.106668066237" />
+        <NodeLayout
+          Size="156.8,41.6"
           Id="Package\DFT Transform-Load\OLE DB Source"
           TopLeft="79.333328035143,75.5733339339363" />
         <NodeLayout
-          Size="160,42"
+          Size="160,41.6"
           Id="Package\DFT Transform-Load\Is in Dimension?"
           TopLeft="330,187" />
         <NodeLayout
-          Size="129,42"
+          Size="128.8,41.6"
           Id="Package\DFT Transform-Load\RC Extract"
           TopLeft="304.666654321883,77.9600006116231" />
         <NodeLayout
-          Size="122,42"
-          Id="Package\DFT Transform-Load\FF Errors"
-          TopLeft="603.999987443289,299.106668066237" />
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[OLE DB Source Output]"
-          TopLeft="236.333328035143,97.7666672727797">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.33332628674,0"
-              Start="0,0"
-              End="60.83332628674,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="60.83332628674,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\DFT Transform-Load\DC Add Audit Key"
-          TopLeft="484,80" />
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[Row Count Output 1]"
-          TopLeft="433.666654321883,99.9800003058116">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50.333345678117,0"
-              Start="0,0"
-              End="42.833345678117,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="42.833345678117,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="132,42"
-          Id="Package\DFT Transform-Load\FK Lookup"
-          TopLeft="80,187" />
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[Derived Column Output]"
-          TopLeft="567.5,122">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-421.5,65"
-              Start="0,0"
-              End="-421.5,57.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5"
-                    Point2="0,32.5"
-                    Point3="-4,32.5" />
-                  <mssgle:LineSegment
-                    End="-417.5,32.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-417.5,32.5"
-                    Point2="-421.5,32.5"
-                    Point3="-421.5,36.5" />
-                  <mssgle:LineSegment
-                    End="-421.5,57.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[Lookup Match Output]"
-          TopLeft="212,208">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="118,0"
-              Start="0,0"
-              End="110.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="110.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="7.05861328125,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="125,42"
+          Size="124.8,41.6"
           Id="Package\DFT Transform-Load\RC Insert"
           TopLeft="626,186" />
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[Lookup No Match Output]"
-          TopLeft="490,207.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="136,0"
-              Start="0,0"
-              End="128.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="128.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="130,42"
-          Id="Package\DFT Transform-Load\Row Count"
-          TopLeft="365.66666147444,298.653334776984" />
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[OLE DB Destination Error Output]"
-          TopLeft="240.333314763176,318.306667694304">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125.333346711264,0"
-              Start="0,0"
-              End="117.833346711264,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="117.833346711264,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.292232894368,5,146.4178125,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Transform-Load.Paths[Row Count Output 11]"
-          TopLeft="495.66666147444,319.88000142161">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="108.333325968849,0"
-              Start="0,0"
-              End="100.833325968849,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="100.833325968849,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="167.2,41.6"
+          Id="Package\DFT Transform-Load\DC Add Audit Key"
+          TopLeft="484,80" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\DFT Transform-Load\FK Lookup"
+          TopLeft="80,187" />
         <EdgeLayout
           Id="Package\DFT Transform-Load.Paths[Row Count Output 12]"
           TopLeft="688.5,228">
@@ -1846,6 +1675,178 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[Row Count Output 11]"
+          TopLeft="495.66666147444,319.88000142161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.333325968849,0"
+              Start="0,0"
+              End="100.833325968849,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="100.833325968849,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[Row Count Output 1]"
+          TopLeft="433.666654321883,99.9800003058116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.333345678117,0"
+              Start="0,0"
+              End="42.833345678117,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="42.833345678117,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[OLE DB Source Output]"
+          TopLeft="236.333328035143,97.7666672727797">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.33332628674,0"
+              Start="0,0"
+              End="60.83332628674,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.83332628674,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[OLE DB Destination Error Output]"
+          TopLeft="240.333314763176,318.306667694304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.333346711264,0"
+              Start="0,0"
+              End="117.833346711264,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.833346711264,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.292232894368,5,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[Lookup No Match Output]"
+          TopLeft="490,207.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136,0"
+              Start="0,0"
+              End="128.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="128.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[Lookup Match Output]"
+          TopLeft="212,208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,0"
+              Start="0,0"
+              End="110.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="110.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.05861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Transform-Load.Paths[Derived Column Output]"
+          TopLeft="567.5,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-421.5,65"
+              Start="0,0"
+              End="-421.5,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="-4,32.5" />
+                  <mssgle:LineSegment
+                    End="-417.5,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-417.5,32.5"
+                    Point2="-421.5,32.5"
+                    Point3="-421.5,36.5" />
+                  <mssgle:LineSegment
+                    End="-421.5,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1871,7 +1872,7 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1881,7 +1882,7 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1894,7 +1895,7 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1904,7 +1905,7 @@ FROM " +  @[User::TableNameDest]</DTS:PropertyExpression>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

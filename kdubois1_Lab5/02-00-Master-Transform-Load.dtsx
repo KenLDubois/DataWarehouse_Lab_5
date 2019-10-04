@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="02-00-Master-Transform-Load"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{D53844B6-E57C-4EF8-B653-D2ABA72D8B9E}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{2577820B-6779-4D12-B74A-83010AA7205F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -67,7 +67,67 @@
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\EP Enrollment"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{FB03D3EF-1CDF-4A1C-BDD2-B53C7110BFCB}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EP Enrollment"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>02-03-EnrollmentOutcomes-Transform-Load.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>ParentAuditKeyParam</ParameterName>
+                <BindedVariableOrParameterName>User::ParentAuditKey</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\EP Student"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{4543127E-1376-45DC-8640-1D36605C694F}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EP Student"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>02-02-Student-Transform-Load.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>ParentAuditKeyParam</ParameterName>
+                <BindedVariableOrParameterName>User::ParentAuditKey</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7BEDB0C2-9C74-4790-ABD7-C813BF3E9FBF}"
+          DTS:From="Package\Sequence Container\EP Course"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\EP Student" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4D967AA3-1030-41A8-AD7B-D0AAA17E3B81}"
+          DTS:From="Package\Sequence Container\EP Student"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\EP Enrollment" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SQL Audit End"
@@ -191,40 +251,104 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="147,42"
-          Id="Package\SQL Audit End"
-          TopLeft="332.333325889376,241" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\SQL Audit Start"
-          TopLeft="46.333325889376,52" />
-        <NodeLayout
-          Size="132,42"
+          Size="132,41.6"
           Id="Package\Sequence Container\EP Course"
-          TopLeft="32,40" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="205,157"
-          Size="205,200"
-          Id="Package\Sequence Container"
-          TopLeft="31,167" />
+          TopLeft="55.33333240615,28.2133332396613" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Sequence Container\EP Student"
+          TopLeft="48.7999968210857,97.4400024464926" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="131.166662944688,94">
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="117.866664613618,69.8133332396613">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73"
+              EndConnector="0,27.6266692068313"
               Start="0,0"
-              End="0,65.5">
+              End="0,20.1266692068313">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.5" />
+                    End="0,20.1266692068313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Sequence Container\EP Enrollment"
+          TopLeft="42.7999970595043,170.826669702742" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="114.799996940295,139.040002446493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.7866672562492"
+              Start="0,0"
+              End="0,24.2866672562492">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2866672562492" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="288.8,265.6"
+          Size="288.8,308.8"
+          Id="Package\Sequence Container"
+          TopLeft="31,167.693333338843" />
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\SQL Audit End"
+          TopLeft="332.333325889376,241" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQL Audit Start"
+          TopLeft="46.333325889376,52" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="128.733325889376,93.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.666674110624,74.0933333388434"
+              Start="0,0"
+              End="46.666674110624,66.5933333388434">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0466666694217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.0466666694217"
+                    Point2="0,37.0466666694217"
+                    Point3="4,37.0466666694217" />
+                  <mssgle:LineSegment
+                    End="42.666674110624,37.0466666694217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.666674110624,37.0466666694217"
+                    Point2="46.666674110624,37.0466666694217"
+                    Point3="46.666674110624,41.0466666694217" />
+                  <mssgle:LineSegment
+                    End="46.666674110624,66.5933333388434" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -235,18 +359,24 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="236,264.5">
+          TopLeft="319.8,322.093333338843">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="96.333325889376,0"
+              EndConnector="86.133325889376,-39.4933333388434"
               Start="0,0"
-              End="88.833325889376,0">
+              End="86.133325889376,-31.9933333388434">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="88.833325889376,0" />
+                    End="82.133325889376,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.133325889376,0"
+                    Point2="86.133325889376,0"
+                    Point3="86.133325889376,-4" />
+                  <mssgle:LineSegment
+                    End="86.133325889376,-31.9933333388434" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
